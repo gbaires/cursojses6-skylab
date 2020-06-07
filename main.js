@@ -1,36 +1,9 @@
-class List {
-	constructor() {
-		this.data = [];
-	}
+const a = 1;
 
-	add(data) {
-		this.data.push(data);
-		console.log(this.data);
-	}
-}
+//a = 3; -> Do not work
 
-class TodoList extends List {
-	constructor() {
-		super();
-		this.usuario = 'Diego';
-	}
+const usuario = { nome: 'Gabriel' };
 
-	mostraUsuario() {
-		console.log(this.usuario);
-	}
-}
+usuario.nome = 'Cleiton';
 
-class Matematica {
-	static soma(a, b) {
-		return a + b;
-	}
-}
-
-const MinhaLista = new TodoList();
-
-document.getElementById('novotodo').onclick = function() {
-	MinhaLista.add('Novo todo');
-}
-
-MinhaLista.mostraUsuario();
-console.log(Matematica.soma(3, 4));
+console.log(usuario.nome);
