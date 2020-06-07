@@ -1,24 +1,45 @@
 "use strict";
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+// REST -> para pegar resto de propriedades
 var usuario = {
   nome: 'Diego',
   idade: 23,
-  endereco: {
-    cidade: 'Rio do Sul',
-    estado: 'SC'
-  }
+  empresa: 'Rocketseat'
 };
-var nome = usuario.nome,
-    idade = usuario.idade,
-    cidade = usuario.endereco.cidade;
-console.log(nome);
-console.log(idade);
-console.log(cidade);
 
-function mostraNome(_ref) {
-  var nome = _ref.nome,
-      idade = _ref.idade;
-  console.log(nome, idade);
+var nome = usuario.nome,
+    resto = _objectWithoutProperties(usuario, ["nome"]);
+
+console.log(resto);
+var arr = [1, 2, 3, 4];
+var a = arr[0],
+    b = arr[1],
+    c = arr.slice(2);
+console.log(a);
+console.log(b);
+console.log(c);
+
+function soma() {
+  for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
+    params[_key] = arguments[_key];
+  }
+
+  return params.reduce(function (total, next) {
+    return total + next;
+  });
 }
 
-mostraNome(usuario);
+function soma2(a, b) {
+  for (var _len2 = arguments.length, params = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+    params[_key2 - 2] = arguments[_key2];
+  }
+
+  return params;
+}
+
+console.log(soma(1, 3));
+console.log(soma2(1, 3, 4, 4, 6, 9, 13));
