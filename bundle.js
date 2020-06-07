@@ -1,9 +1,12 @@
 "use strict";
 
-var a = 1; //a = 3; -> Do not work
+function teste(x) {
+  var y = 2; // Scope variable
 
-var usuario = {
-  nome: 'Gabriel'
-};
-usuario.nome = 'Cleiton';
-console.log(usuario.nome);
+  if (x > 5) {
+    var _y = 4;
+    console.log(x, _y);
+  }
+}
+
+teste(10);

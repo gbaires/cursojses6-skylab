@@ -1,9 +1,11 @@
-const a = 1;
+function teste(x) {
+	let y = 2; // Scope variable
 
-//a = 3; -> Do not work
+	if(x > 5) {
+		let y = 4;
 
-const usuario = { nome: 'Gabriel' };
+		console.log(x, y);
+	}
+}
 
-usuario.nome = 'Cleiton';
-
-console.log(usuario.nome);
+teste(10);
