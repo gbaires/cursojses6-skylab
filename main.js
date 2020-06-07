@@ -1,30 +1,18 @@
-// REST -> para pegar resto de propriedades
+// SPREAD -> propaga informacoes de array ou objeto para outra estrutura de dados
 
-const usuario = {
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = [ ...arr1, ...arr2 ];
+
+console.log(arr3);
+
+const usuario1 = {
 	nome: 'Diego',
 	idade: 23,
-	empresa: 'Rocketseat'
+	empresa: 'Rocketseat',
 };
 
-const { nome, ...resto } = usuario;
+const usuario2 = { ...usuario1, nome: 'Gabriel' };
 
-console.log(resto);
-
-const arr = [1, 2, 3, 4];
-
-const [ a, b, ...c ] = arr;
-
-console.log(a);
-console.log(b);
-console.log(c);
-
-function soma(...params) {
-	return params.reduce((total, next) => total + next);
-}
-
-function soma2(a, b, ...params) {
-	return params;
-}
-
-console.log(soma(1, 3));
-console.log(soma2(1, 3, 4, 4, 6, 9, 13));
+console.log(usuario2);
