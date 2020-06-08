@@ -1,10 +1,7 @@
-const nome = 'Diego';
-const idade = 23;
+//import { soma as somaFunction, sub } from './funcoes';
+//import soma, { sub } from './funcoes';
+import * as funcoes from './funcoes';
+//import somaFunction from './soma';
 
-const usuario = {
-	nome,
-	idade,
-	empresa: 'Rocketseat',
-};
-
-console.log(usuario);
+console.log(funcoes.soma(1, 2));
+console.log(funcoes.sub(4, 2));
